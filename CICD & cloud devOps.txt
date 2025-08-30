@@ -1,0 +1,878 @@
+CI/CD & cloud devOps
+                                                  -------------------------------
+
+
+module 1- git
+module 2-jenkins
+module 3-docker
+module 4-kubernetes
+
+---
+cloud devOps:
+---
+-DevOps is the set of tools/practices that aims to bridge the gap between development &operations team
+ 
+               (dev)  (ops)
+               Build +deploy (url-domain)
+
+-the goal of devOps is to deliver application/software
+ 1.faster
+ 2.reliable
+ 3.collaboration(interaction between team)
+
+-key principles of devOps
+ 1.automation
+ 2.cicd
+ 3.collabrations
+
+note: cloud Devops
+ -devOps in cloud environment
+ -Cloud devOps (AWS,AZURE,GCP)
+
+CI / CD :
+
+- It is a modern DevOps practice used in software development nowadays in order to automate & streamline
+ 	the process of integrating code & deliver them to users
+
+CI :
+
+- In this particular category, the developers frequently pushed the code to a shared repository
+
+CD :
+
+- There are two interpretations for CD is
+ 		1. Cloud Delivery
+            - Code changes are automatically prepared for release/ delivery
+ 		2. Cloud Deployment
+            - Code Changes will be automatically
+
+ 
+                                                        MODULE-1
+                                                      -----------
+                                                          GIT
+                                             ----------------------------
+
+list of topics
+---
+-vcs(version controlled system & Git)
+-git installation(Local)
+-GitHub Account creation
+-git configuration with GitHub
+-getting started with git/git basics
+-working with branches
+-remote repositories
+-collaboration workflow
+-git tools
+
+-version controlled system & Git
+
+
+-git installation
+
+
+
+
+GitHub account creation
+-
+
+
+
+
+
+git(local) configuration with GitHub(remote)
+---
+
+cmd: git config --global user.name "pabbathibalaji12@gmail.com"
+ 
+     git config --global user.password "Balaji@246810"
+
+     git config --list
+
+ 
+to  deconfig : git config --global --unset user.name
+ 
+               git config --global --unset user.password
+
+Introduction vcs(version controlled system & Git)
+---
+
+-vcs stand for version controlled system it records changes to files(especially code changes)
+ over the time so that
+1.revisit earlier versions/files
+2.track who can make the changes
+3.collaboration within others
+
+ex: it runs like "time machine"
+ 
+     project_v1, project2, pro_3 etc
+
+-types of vcs
+ -there ARE 3 types are vcs
+  1.local vcs
+  2.Centralized Vcs
+  3.Distributed vcs
+
+
+1.local vcs:
+ 
+-working on git without remotely
+
+2.Centralized Vcs:
+
+⦁	working on server(code)
+
+
+3.Distributed vcs:
+
+-working on git with remotely
+
+git
+---
+⦁	git is Distributed vcs with is primarily using for tracking any change in source code during development of software
+⦁	it always multiple developer to work on the project simultaneously without writing each other change
+
+
+
+GiT Basics/ Getting Started with git
+---
+# Git Basics :
+1. Create Repository
+    - Step - 1 :
+        - create a remote repository
+        - Create a local repository (local system)
+            - Create a file in local repository (html file)
+            - File creation using cmd prompt
+ 
+                cmd : echo “Welcome to Git” >> abc.txt
+ 
+        - Note : Files - Untracked Files
+ 
+Step 2: Initialize to all my file to git
+ 
+          cmd: git init
+
+note: to check the status of the file (untracked or tracked)
+   cmd: git status
+                 -> untracked
+ 
+
+2.staging Area(temporary space)
+              -temporary space to hold all the changes before commit
+
+ 
+    cmd:
+        git add abc.txt (single file)
+        git add .(multiple file)
+
+3. Commit
+    - To commit all the changes made at staged area (temporary space)
+ 
+    bash
+    git commit -m "first commit"
+
+4.Create Branch
+ -in order to add all my file
+
+  cmd:  git branch main
+
+5.remote Repository to git
+                  -Assign remote repository to git(local)
+
+        cmd:
+             git remote add origin
+
+6.push:
+        push all the file from git(local) to remote repository
+
+       cmd:
+             git push -u origin main
+
+note: the above are the commands which help files to be moved from local to global(remote)
+
+7.history:
+---
+
+ git maintains a track of every record changes to your project
+         -too see what changes made,by whom and when
+
+    cmd: git log - it show complete history of commits
+ 
+         git log --oneline - it shows summary of commits (unique id)
+ 
+         git show <commit-id> - it shows detailed way of specific commit
+ 
+         git diff           - it shows unstaged text (file)
+ 
+         git diff --staged  - it shows staged text
+
+note:
+1.to compare two commits
+
+git diff <commit-l><commit-2>
+
+2.to show commit by author
+
+git log --author-"Balaji 05-05"
+
+3.to show recent commit (assuming your works for 3 months)
+
+ git log --since="2 weeks ago"
+
+
+
+8.help
+---
+     - if you want to learn  how a command works or if you forget a specific command
+
+cmd: git help <cmd-name> -it displays the
+
+  or
+
+git<command> --help
+ 
+or
+
+git <command> -h --it displays summery of all the command
+
+git help --all -- it list all git commands
+
+git help -g - it gives a guide
+
+
+9.status
+---
+ - this command help t know the status of the current working repository
+
+
+cmd: git status
+
+
+10.Revert
+---
+ 
+-undo the commit made earlier and create earlier and create a new commit for representing for undo action
+
+ cmd:
+     git revert <commit-id>
+
+11. rm ⇒ to remove the files from the current directly
+ 
+    bash
+    git rm <file-name>
+
+12.Tagging
+
+-a tag is label or bookmark for a specific commit
+-tagging are used to mark important project and also to track of history
+-it denoted by V1.0,V2.0,V3.0..............
+-tag are two types
+1.lightweight tag
+2.Annotated Tag
+
+1.lightweight tag
+
+⦁	it a simple name of commit
+-cmd:
+            git tag <tagname>
+            git tag V1.0
+
+2.Annotated Tag
+
+ -name,date and message
+ 
+-Cmd
+      git tag -a<tagname> -m "message"
+      git tag -a V1.0 -m "Version-1"
+
+note:
+1.to list a tag all the tag
+Cmd:
+        git tag
+2.to show the details
+cmd:
+       git show <tagname>
+       git show V1.0
+
+8.working with Branch
+---
+In Git breach  is separate work space and also to add idea with effect project
+
+-why branch
+
+building new features
+
+1.create branch
+⦁	to create branch
+⦁	Cmd
+⦁	      git branch <branch-name>
+⦁	      git branch first
+
+
+2.List Branches
+          -to get the list all branches
+Cmd:
+
+        git branch
+ 
+3.switch b/w branches
+ -to from one branch from anther branch
+
+cmd:
+        git checkout <branch -toshift>
+ 
+        git checkout first
+
+
+note: create branch & switch to branch you created
+
+cmd:
+
+      git checkout -b <branch name>
+
+
+4. Add files to newly created branch
+---
+    1. Step 1 :  Intially we need to in main branch
+ 
+        bash
+        git checkout main
+ 
+ 
+    2. Step 2: Create a branch
+ 
+        bash
+        git branch third
+ 
+ 
+    3. Step 3: Switch to newly created branch
+ 
+        bash
+        git checkout thrid
+ 
+ 
+    4. Step 4: Add files to a branch
+
+        1. create file
+ 
+            bash
+            echo "Working on branches" >> b.txt
+ 
+ 
+        2. Add
+ 
+            bash
+
+            git add .
+ 
+ 
+        3. commit
+ 
+            bash
+
+            git commit -m "created b.txt"
+ 
+ 
+        4. tag
+ 
+            bash
+            git tag -a v2.0 -m "Version 2"
+ 
+ 
+        5. Push
+ 
+            bash
+            git push -u origin third
+ 
+ 
+5. Merge Branches
+---
+    1. To merge two branches ⇒ (branch you created + default branch)
+    2. In order to merge the the branch you created with main branch, intially
+    you MUST be in the main branch
+ 
+bash
+        git checkout main
+ 
+        git merge third
+ 
+        git push -u origin main
+
+6.deleting branch
+---
+⦁	to delete the braches we created
+⦁	it can done in ways
+⦁	1.deleting local branch
+⦁	2.deleting  remote branch
+
+1.deleting local branch
+
+cmd: git branch -d <branch name>
+ 
+     git branch -d third
+
+2.deleting  remote branch
+
+cmd:
+
+       git push origin --delete third
+
+note:
+1.to list all local branches
+cmd:
+    git branch
+2.to list all remote repository branches
+cmd:
+       git branch -r
+
+8.git collaboration
+---
+
+-it refer to the process the multiplies developers works on the same project
+
+1.key elements of collaboration
+ a.remote Repository
+  -it a central location (githud)
+  - every one pushes or pull the code to are from shared reposito
+b.branch
+devolport can created shepared branch (workspace) to work on their individual modules
+
+c.commit
+ -changes are same with message or tag name descring what is done
+
+d.push
+
+push send local
+
+pull get updates
+
+
+
+2.working procedure
+---
+
+1.Invitation(1st user)
+              -Remote repository
+              -setting
+              -collaboration
+               -add invites
+
+2.accept Invitation (2st user)
+             -mail
+             -accept invitation
+            -username of 1st user
+
+3.clone repository(2st user)
+        -git clone https://github.com/Sekhar-Cse/S201.git
+           (remote rep will clone to local machine)
+
+4.modification
+  -file created
+    .
+  .
+    .
+  -push
+
+5.1st user
+   -check the modification done by 2st user is reflecting in 1st user repository(remote)
+
+note:
+---
+
+1. When push operation is completed by 2nd user
+    1. 1st user cannot push any more until and unless he pulls the same
+
+      cmd:  git push (remotre repository files will be reflected to local repository)
+
+2.Alternative way of implementing pull command
+    -pull ->fetch +merge
+ 
+cmd:
+     git fetch origin
+     git merge origin/main
+ 
+
+Scenario:
+---
+
+to work as fsd project (sdc-1) as a team -git collaboration
+
+step 1:(2nd user)
+
+be ready with fsd project (Desktop)
+
+step 2:(1st user)
+
+create a remote repository(fsad-S201)
+ - send Invitation
+
+
+step 3:(2nd user)
+-accept Invitation
+
+step 4:clone
+
+-cd Desktop
+
+-git clone https://github.com/Sekhar-Cse/FSAD-S201.git
+
+step 5:(2nd user)
+   push
+
+cd FSAD-S201
+
+a. Initialization
+   git init
+
+b. staged area
+  git add .
+
+c. commit
+
+git commit -m "Initial commit"
+
+d. tag
+ 
+git tag V1.0
+
+e. branch
+
+git branch
+
+f. define origin
+
+git remote set-url origin https://github.com/Sekhar-Cse/FSAD-S201
+
+g. push
+
+git push -u origin main
+
+note:
+---
+
+-create a react app (vs code)and make sure it is reflecting in GitHub repository(remote repository)
+
+step-1:creaate a folder
+
+React-brs
+
+step-2: Access this through Vs code
+
+cd desktop
+
+-cd Fsad-Brs
+⦁	code .
+
+step 3:Create a remote repository
+
+(react-brs)
+
+step 4:create react application (react-brs)
+
+npm create vite
+(app.js)
+
+note: npm run dev
+
+cd myadd
+
+git init
+
+git add .
+
+git commit -m "1st commit of react app"
+
+git tag V1.0
+
+git branch -m origin
+
+git remote add origin "https://github.com/balaji-0505/React-Brs.git"
+
+git push -u origin main
+
+note: react app is now reflecting in GitHub repository
+
+
+remote repository
+---
+it is a shared repository where our project resides
+
+Key concepts of remote repository
+
+1.collaboration
+
+remote repository commands
+---
+1.git clone <url.git>
+
+2.git remote add origin
+
+3.git pull
+
+4.git fetch
+
+5.git branch -r(to see all branch from remote repository)
+
+remote repository is popularly  called as GitHub
+
+note:
+git actions are the commands or operations which performed on local repository
+-git init
+-git add
+-git tag
+-git branch
+-git push
+-git commit
+
+GitHub pages / git actions
+---
+it used to implement  ci/cd pipelines and to deploy our project in GitHub
+
+    GIT HUB PAGES TERMINOLOGY:
+---
+ 
+
+                1. Event
+
+                         - User pushes / pulls Code
+
+ 
+
+                2. Jobs
+
+                         - It implements what job to be done when ode changes
+
+ 
+
+                3. Runners
+
+                         - Setting up environment. In order to execuite Jobs
+
+ 
+
+                4. Steps
+
+                         - It define the process to be implemented
+
+ 
+
+                5. Action
+
+                         - What is to be done, when a project is deployed.
+
+ 
+a. Working procedure
+---
+-it demonstrates step by step procedure of how our project can be  deployed in GitHub
+
+
+step 1:
+
+push your project to GitHub repository'
+
+step 2:
+  add yml file
+    my app(reactapp)
+          .github/workflow
+
+-ci.yml
+-cd.yml
+
+
+step 3:
+
+"predeploy": "npm run build"
+"deploy":"gh-pages -d dist"
+
+
+step 4:go terminal in vs code install the following module to support github pages4
+
+npm install gh-pages --save-dev (to search in google gh pages npm)
+
+
+step 5:Run
+
+--npm run build
+
+Step-6:
+
+                          Any changes in local rep (proj) MUST pushed to remote repository
+
+ 
+
+                Step-7:
+
+                          Settings
+
+                              - Actions
+
+                                  - General
+
+                                         - Workflow permission
+
+                                                   - Read and permissions
+
+                                                               - Read
+
+ 
+
+                Step 8:
+
+     Final build of project
+
+     CMD: npm run build
+
+               npm run deploy
+
+ 
+
+ 
+
+                Step 9:
+
+                          Pages
+
+                             - Build and deploy
+
+                                       - Source
+
+                                                - Deploy from branch <-> GITHUB Actions
+
+                                                          - branch
+
+                                                                  - main(default)
+
+                                                                          - gh- pages --------> click save
+
+                Step 10:
+
+                          Actions
+
+                               - Build And Deploy
+
+                                       - Build portion
+
+                                              - Deployment portion
+
+                                                             (URL -> project Deploy)
+
+             Note: When there are changes in the project, then you must push the updates of the local repository to remote repository and the same update you can see in the URL.
+
+ 
+
+             Note:  What is YML files
+
+                             - YML Files are text files which is used for store the data (configuration Data), which support for the purpose of the deployment.
+
+                             - YML file must have an extension .yml or .yaml
+
+                             - YML files are alternate to JSON files.
+
+                             - YML consist of
+
+                                        a. Events
+
+                                        b. Jobs
+
+                                        c. Runners
+
+                                        d. Steps
+
+                                        e. Actions
+
+
+9.Git Tools
+---
+
+Some of the very popular git tools which are widely used in industry that are expected to be learned by every developer are
+
+1. Git CLI
+---
+    1. CLI stands for cmd line interface.
+    2. It is a core tool which helps to interact with git
+commands:
+
+2.Github
+---
+-the tool with is most  powerful and used millions of developer in software
+⦁	it is a shared repository it is popular knows remote repository
+⦁	features
+1.repository hosting
+2.cloning
+3.pull request
+4.gitpages/actions
+
+commands: discussed earlier
+
+3.vs code with git  Integration
+---
+ -it is ones of the popular integrated tool used in industry to design  and deploy application
+commands:
+     vs code terminal
+
+4.git lab
+---
+GitLab is a web-based platform that provides a complete set of tools for the entire software development lifecycle,
+-it a very security than GitHub
+1. Git Lab is an well accepted tool that is used in industry for
+    1. Source code management using git
+    2. CI/CD pipelines
+    3. Enchanced Security
+    4. Better Team Collaboration & Bug Solving
+2. URL of GitLab
+ 
+    https://gitlab.com/username/repo.git
+ 
+5.git bash
+---
+
+6.git bucket
+---
+
+note: SourceTreeGit
+
+      Tortise git
+ 
+                     MODULE-2
+                                           --------------------------
+                                                     JENKINS
+
+TOPICS:
+---
+1.Intraduction to Jenkins
+2.INstalliation
+
+
+1.Intraduction
+ - Jenkins is an open source automated system which is used to implement ci/cd
+
+ci-continuous Integration (build)
+cd-continuous Deployment (deploy)
+
+it  allows developers
+
+a. automatically build code
+b. automatically text code
+c. automatically  deploy
+d. track build history
+
+-key features
+a. open sources
+b. automated
+c. Cross platform
+d. Extension plug-ins (1800)
+e. Integrated with everything (git ,GitHub, docker)
+f. writhing in java
+ 
+
+
+
+2.Installiation
+
+⦁	in order to work with Jenkins ,you must have the following software
+
+a.java 21(JDK & JRE)
+b. Apache tomcat server (9.0)
+c. Jenkins
+d. Maven
+
+-java 21
